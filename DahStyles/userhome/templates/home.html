@@ -55,7 +55,7 @@
                     <div class="product__item__pic set-bg" data-setbg="{{i.image_1.url}}">
                         <ul class="product__hover">
                             <li><a href="{{i.image_1.url}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="{% url 'add_to_wishlist' i.id %}"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="{% url 'add_wishlist' i.id %}"><span class="icon_heart_alt"></span></a></li>
                             {% comment %} <li><a href="{% url 'add_cart' j.category %}"><span class="icon_bag_alt"></span></a></li> {% endcomment %}
                         </ul>
                     </div>

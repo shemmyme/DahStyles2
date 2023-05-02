@@ -411,17 +411,31 @@ def wishlist(request):
 
 @login_required(login_url='login')
 def add_to_wishlist(request, product_id):
-    print('its reach here')
-    product = get_object_or_404(Product, id=product_id)
+    print('================================================')
+    product = get_object_or_404(Product, id=product_id)     
     wishlist, created = Wishlist.objects.get_or_create(user=request.user)
     wishlist_items = wishlist.wishlistitem_set.all()
     for item in wishlist_items:
         if item.product == product:
             messages.warning(request, 'This product is already in your wishlist')
             return redirect('shop')
+        
     wishlist_item = WishlistItem.objects.create(wishlist=wishlist, product=product)
     messages.success(request, 'Product added to your wishlist')
     return redirect('wishlist')
+
+
+def add_wishlist(request,product_id):
+    try:
+        product = Product.objects.get(id=product_id)
+        wishlist, _ = Wishlist.objects.get_or_create(user=request.user)
+        item, _ = WishlistItem.objects.get_or_create(wishlist=wishlist, product=product)
+        messages.success(request, 'Product added to your wishlist')
+        return redirect('wishlist')
+    except:
+        messages.warning(request, 'Something went wrong')
+        return redirect('shop')
+    
 
 def remove_from_wishlist(request, item_id):
     wishlist_item = WishlistItem.objects.get(id=item_id)

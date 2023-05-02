@@ -49,6 +49,9 @@ urlpatterns = [
     path('manageaddress/',views.manageaddress,name='manageaddress'),
     path('deleteaddress/<int:id>/',views.deleteaddress,name='deleteaddress'),
     path('edit_address/<int:id>/', views.edit_address, name='editaddress'),
+    
+    
+    path('add_wishlist/<int:product_id>/', views.add_wishlist, name='add_wishlist'),
  
     
 

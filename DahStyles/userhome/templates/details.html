@@ -59,10 +59,10 @@
                             {% endif %}
                             {% endif %}
 
-                            </form>
+    </form>
                             
                             <ul>
-                                <li><a href="{% url 'add_to_wishlist' products.id %}"><span class="icon_heart_alt"></span></a></li>
+                                <li><a href="{% url 'add_wishlist' products.id %}"><span class="icon_heart_alt"></span></a></li>
                                 {% comment %} <li><a href="#"><span class="icon_adjust-horiz"></span></a></li> {% endcomment %}
                             </ul>
                         </div>

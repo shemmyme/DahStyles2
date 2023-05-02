@@ -28,7 +28,7 @@
                             <tr>
                                 <th>Product</th>
                                 <th>Price</th>
-                                <th>Cart</th>
+                                {% comment %} <th>Cart</th> {% endcomment %}
                                 <th>Remove</th>
                                 
                                 {% comment %} <th>Move</th> {% endcomment %}
@@ -52,7 +52,6 @@
                                     </div>
                                 </td>
                                 <td class="cart__price">$ {{i.product.price}}</td>
-                                <td><a href="{% url 'add_cart' i.product_id %}" class="cart-btn"><span class="icon_bag_alt"></span></a></td>
                                 <td class="cart__close"><a href="{% url 'remove_from_wishlist' item_id=i.id %} "> <span class="icon_close"></span></a></td> 
 
 
